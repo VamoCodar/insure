@@ -87,6 +87,9 @@
     height: 40px;
     color: $branco;
     transition: 0.2s ease;
+    @include d(l) {
+      margin-left: 300px;
+    }
     &:hover {
       color: $preto;
       background: $branco;
