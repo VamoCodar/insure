@@ -1,0 +1,121 @@
+.parte-2 {
+  margin-top: 350px;
+  @include d(s) {
+    margin-top: 150px;
+  }
+
+  h2 {
+    display: block;
+    position: relative;
+    @include traço {
+      bottom: 120px;
+      background: $roxo-claro;
+      opacity: 50%;
+      @include d(s) {
+        bottom: 90px;
+        width: 30%;
+        right: 40%;
+      }
+    }
+    @include titulo(64px, $preto);
+    @include d(s) {
+      font-size: 48px;
+      text-align: center;
+    }
+  }
+}
+
+.lista-3 {
+  margin-top: 60px;
+  li {
+    @include d(s) {
+      max-width: 300px;
+      margin: 0 auto;
+      margin-bottom: 60px;
+      img {
+        padding-bottom: 10px;
+        @include d(s) {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  h3 {
+    @include titulo(28px, $preto);
+    font-weight: 700;
+    line-height: 10px;
+    padding-top: 10px;
+    @include d(s) {
+      text-align: center;
+    }
+  }
+
+  p {
+    color: $roxo-claro;
+    font-size: 16px;
+    padding-bottom: 30px;
+    line-height: 20px;
+    @include d(s) {
+      text-align: center;
+    }
+  }
+}
+/* quebra */
+.quebra {
+  margin-top: 140px;
+  background: $roxo;
+  max-width: 1100px;
+  height: 240px;
+  padding: 0 50px;
+
+  h2 {
+    @include titulo(58px, $branco);
+    @include d(m) {
+      font-weight: 400;
+      font-size: 42px;
+    }
+    @include d(s) {
+      margin-top: 60px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+  a {
+    z-index: 10;
+    @include botao;
+    display: inline-block;
+    height: 40px;
+    color: $branco;
+    transition: 0.2s ease;
+    &:hover {
+      color: $preto;
+      background: $branco;
+    }
+  }
+}
+
+.quebra {
+  @include d(s) {
+    height: 500px;
+    flex-direction: column;
+    justify-content: initial;
+  }
+  &:after {
+    content: "";
+    background-image: url(../images/bg-pattern-how-we-work-desktop.svg);
+    width: 300px;
+    height: 240px;
+    display: block;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+    right: 0px;
+    top: 130px;
+    @include d(s) {
+      background-image: url(../images/bg-pattern-how-we-work-mobile.svg);
+      right: 0px;
+      width: 170px;
+      height: 340px;
+    }
+  }
+}

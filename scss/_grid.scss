@@ -1,7 +1,7 @@
 //variaveis do grid
 $cols: 12;
 $gutter: 20px;
-$l-device: 1200px;
+$l-device: 1100px;
 $m-device: 760px;
 $s-device: 480px;
 
@@ -85,10 +85,14 @@ $s-device: 480px;
   flex-wrap: wrap;
   max-width: 100%;
 }
-.column
+.row-column {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
 
 //classes flexbox
-
 
 //justify
 .justify-center {

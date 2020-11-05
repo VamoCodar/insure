@@ -2,7 +2,7 @@ body {
   font-family: $fonte-base;
   font-size: 16px;
   transition: all 0.2s ease;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 //menu desktop
@@ -47,6 +47,7 @@ body {
     height: 900px;
   }
   h1 {
+    letter-spacing: 2px;
     position: relative;
     padding-top: 150px;
     margin-bottom: 20px;
@@ -88,6 +89,22 @@ body {
     border-color: $branco;
     color: $branco;
     font-family: $fonte-base;
+    position: relative;
+    @include d(l) {
+      //detalhe esquerdo
+      &:after {
+        content: "";
+        background-image: url(../images/bg-pattern-intro-left-desktop.svg);
+        width: 200px;
+        height: 500px;
+        display: block;
+        background-repeat: no-repeat;
+        position: absolute;
+        margin-top: 10px;
+        right: 90px;
+      }
+    }
+
     @include hover($preto, $branco);
     @include d(s) {
       margin: 20px auto 0 auto;
@@ -131,8 +148,8 @@ body {
   background-image: url(../images/bg-pattern-intro-right-desktop.svg);
   background-repeat: no-repeat;
   position: absolute;
-  display: inline-block;
-  width: 420px;
+  display: block;
+  width: 200px;
   height: 470px;
   right: 0;
   z-index: 30;
@@ -153,10 +170,12 @@ body {
     background-repeat: no-repeat;
     display: block;
     background-image: url(../images/bg-pattern-intro-right-mobile.svg);
-    right: -74px;
+    right: 0px;
     bottom: -170px;
     z-index: 0;
-    width: 200px;
+    width: 123px;
     height: 320px;
   }
 }
+
+//parte 2
