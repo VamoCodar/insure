@@ -309,7 +309,7 @@ body {
     right: 10px;
     top: 170px;
     max-width: 45%;
-    background-image: url("images/image-intro-mobile.jpg");
+    background-image: url("/images/image-intro-mobile.jpg");
     margin: 0 auto;
   }
 }
