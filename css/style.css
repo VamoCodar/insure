@@ -290,7 +290,7 @@ body {
   }
 }
 .image-intro {
-  background-image: url("images/image-intro-desktop.jpg");
+  background-image: url("/images/image-intro-desktop.jpg");
   height: 650px;
   display: block;
   background-size: contain;
