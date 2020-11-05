@@ -1,0 +1,160 @@
+//variaveis do grid
+$cols: 12;
+$gutter: 20px;
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+//mixin media querie
+@mixin d($size) {
+  @if $size == l {
+    @media screen and (min-width: $l-device) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (min-width: $m-device) and (max-width: $l-device - 1) {
+      @content;
+    }
+  } @else if $size == s {
+    @media screen and (max-width: $m-device - 1) {
+      @content;
+    }
+  }
+}
+//mixin container
+@mixin container {
+  max-width: $l-device;
+  position: relative;
+  margin: 0 auto;
+  @include d(m) {
+    max-width: $m-device;
+  }
+  @include d(s) {
+    max-width: $s-device;
+  }
+}
+
+.container {
+  @include container;
+}
+
+//função do grid bonitinha com o offset gambiarrado
+@function grid($col, $offset: false) {
+  $width: $col / $cols * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @if $offset == offset {
+    $gutter: $gutter / 2;
+    $result: calc(#{$width} + #{$gutter});
+  }
+  @return $result;
+}
+
+//gera as classes de grid
+@for $i from 1 through $cols {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
+
+//mixin estrutura do grid
+@mixin grid-structure {
+  min-width: 1px;
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  @include d(s) {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+//ficar menos classes e fazer uma geral com as props
+[class^="grid-"] {
+  @include grid-structure;
+}
+
+//reseta margin offset
+@include d(s) {
+  %offset {
+    margin-left: 0px;
+  }
+}
+
+//display flex
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.column
+
+//classes flexbox
+
+
+//justify
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+//align itens
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+
+.items-base {
+  align-items: baseline;
+}
+
+.items-center {
+  align-items: center;
+}
+
+//align content
+.content-start {
+  align-items: flex-start;
+}
+.content-end {
+  align-items: flex-end;
+}
+.content-center {
+  align-items: center;
+}
+
+.content-base {
+  align-items: baseline;
+}
+
+.content-center {
+  align-items: center;
+}
+
+//flex item allign self
+
+.item-start {
+  align-self: flex-start;
+}
+
+.item-end {
+  align-self: flex-end;
+}
+
+.item-center {
+  align-self: center;
+}
+.item-base {
+  align-self: baseline;
+}

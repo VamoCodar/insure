@@ -1,0 +1,121 @@
+//menu mobile
+.container-menu {
+  margin: 20px;
+  @include d(l) {
+    display: none;
+  }
+  @include d(m) {
+    display: none;
+  }
+}
+
+/* tres traçõs */
+.module {
+  margin-left: auto;
+  padding: 13px 8px 13px 8px;
+  z-index: 20;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid $preto;
+  box-shadow: (-1px -1px 1px 0px $roxo-claro) inset;
+}
+
+.botao {
+  display: block;
+  background: $preto;
+  width: 15px;
+  height: 2px;
+  transition: 0.4s ease-in-out;
+  position: relative;
+}
+
+.botao:after,
+.botao:before {
+  display: block;
+  background: $preto;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  transition: 0.4s ease-in-out;
+}
+.botao:before {
+  top: -5px;
+}
+.botao:after {
+  bottom: -5px;
+}
+
+/* rotação do botao */
+.menu-open .botao {
+  transform: rotate(45deg);
+}
+.menu-open .botao:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+.menu-open .botao:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+//section dos atalhos
+
+.menu-closed .atalhos {
+  display: none;
+}
+
+.menu-open .atalhos {
+  position: absolute;
+  top: 0;
+  background-color: $preto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  align-items: center;
+  padding-top: 60px;
+  animation: entrada 0.4s ease backwards;
+  z-index: 99;
+  overflow: hidden;
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("/images/bg-pattern-mobile-nav.svg");
+    height: 180px;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    top: 400px;
+    right: 0;
+  }
+
+  a {
+    color: $branco;
+    font-weight: 500;
+    font-size: 22px;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    overflow: hidden;
+  }
+}
+.menu-open .planos {
+  @include botao;
+  padding: 10px 80px;
+  @include hover($preto, $branco);
+  @include d(s) {
+    padding: 10px 60px;
+  }
+}
+
+/* animação menu mobile */
+@keyframes entrada {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
