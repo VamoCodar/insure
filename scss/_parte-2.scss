@@ -12,9 +12,10 @@
       background: $roxo-claro;
       opacity: 50%;
       @include d(s) {
-        bottom: 90px;
-        width: 30%;
-        right: 40%;
+        width: 100px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
       }
     }
     @include titulo(64px, $preto);
